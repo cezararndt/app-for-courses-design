@@ -161,7 +161,7 @@ const Home: React.FC = () => {
                 </ClassIcon>
                 <div>
                   <span>Location</span>
-                  <span style={{ color: '#577bb7', opacity: 1}}>googlemeet/?call=Lesson</span>
+                  <span style={{ color: '#577bb7', opacity: 1, cursor: 'pointer' }}>googlemeet/?call=Lesson</span>
                 </div>
               </ClassIconContainer>
 
