@@ -9,13 +9,16 @@ import {
   CodeInput,
   ImageContainer,
   Class,
-  ClassIcon
+  ClassIcon,
+  ClassIconContainer,
+  ClassStudentsContainer
 } from '../styles/pages/home'
 import Image from 'next/image'
 import logo from '../assets/logo.png'
 import avatarImage from '../assets/avatar.jpg'
 import notebook from '../assets/notebook.png'
 import mac from '../assets/mac.png'
+import materials from '../assets/materials.png'
 import Avatar from '../components/Avatar'
 import CourseSection from '../components/CourseSection'
 import { FaCalendar } from 'react-icons/fa'
@@ -140,21 +143,55 @@ const Home: React.FC = () => {
           </Course>
           <Class>
             <div style={{ marginTop: 15 }}>
-              <h2>Lesson N°6</h2>
+              <h2 style={{ marginBottom: 20 }}>Lesson N°6</h2>
 
-              <ClassIcon outerColor={"#D0E6FA"} iconColor={"#40A0E8"}>
-                <FaCalendar size={18}/>
-              </ClassIcon>
+              <ClassIconContainer>
+                <ClassIcon outerColor={"#D0E6FA"} iconColor={"#40A0E8"}>
+                  <FaCalendar size={18}/>
+                </ClassIcon>
+                <div>
+                  <span>April 3, 2021</span>
+                  <span>10:00-11:30</span>
+                </div>
+              </ClassIconContainer>
 
-              <ClassIcon outerColor={"#FDF0D0"} iconColor={"#F3BE44"}>
-                <IoNavigate size={24}/>
-              </ClassIcon>
+              <ClassIconContainer>
+                <ClassIcon outerColor={"#FDF0D0"} iconColor={"#F3BE44"}>
+                  <IoNavigate size={24}/>
+                </ClassIcon>
+                <div>
+                  <span>Location</span>
+                  <span style={{ color: '#577bb7', opacity: 1}}>googlemeet/?call=Lesson</span>
+                </div>
+              </ClassIconContainer>
 
-              <ClassIcon outerColor={"#CEEEDF"} iconColor={"#3BBB77"}>
-                <BsCameraVideoFill size={24}/>
-              </ClassIcon>
+              <ClassIconContainer>
+                <ClassIcon outerColor={"#CEEEDF"} iconColor={"#3BBB77"}>
+                  <BsCameraVideoFill size={24}/>
+                </ClassIcon>
+                <div>
+                  <span>Accept video</span>
+                  <span>Everyone</span>
+                </div>
+              </ClassIconContainer>
               
+              <ClassStudentsContainer style={{ marginTop: 35 }}>
+                { new Array(5).fill("https://thispersondoesnotexist.com/image").map((img, key) => (
+                  <Avatar
+                    image={`${img}`}
+                    key={key}
+                    size={"small"}
+                  />
+                ))}
+              </ClassStudentsContainer>
 
+              <h3>
+                Materials to study
+              </h3>
+
+              <ImageContainer style={{ marginTop: 30 }}>
+                <Image src={materials} width={300} height={150} />
+              </ImageContainer>
             </div>
           </Class>
         </section>

@@ -2,7 +2,7 @@ import React from 'react'
 import { AvatarImage, AvatarInfo, AvatarContainer } from './styles'
 
 interface AvatarProps {
-  image: StaticImageData
+  image: StaticImageData | string
   size: 'small' | 'medium' | 'large'
   name?: string
   occupation?: string

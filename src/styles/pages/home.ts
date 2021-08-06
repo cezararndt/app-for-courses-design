@@ -1,22 +1,35 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const buttonCSS = css`
+  margin: 50px 0 35px;
+  align-self: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 50px;
+  border: 0;
+  cursor: pointer;
+  border-radius: ${props => props.theme.borderRadius};
+`
 
 const Main = styled.main`
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-template-rows: 1fr;
-  height: calc(100vh - 40px);
+  min-height: calc(100vh - 40px);
   max-width: calc(1110px + 250px);
   margin: 20px auto;
   border-radius: ${props => props.theme.borderRadius};
   overflow: hidden;
   background: #fff;
   padding: 40px;
+  padding-right: 0;
 
   section {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 1fr;
-    max-width: calc(1110px - 80px);
+    max-width: calc(1110px - 40px);
 
     > div {
       &:nth-child(2) {
@@ -32,7 +45,7 @@ const Main = styled.main`
 
 const ImageContainer = styled.div`
   align-self: center;
-  margin-top: 55px !important;
+  margin-top: 55px;
 ` 
 
 const BaseContainer = styled.div`
@@ -57,6 +70,36 @@ interface ClassIconProps {
   iconColor: string;
 }
 
+const ClassStudentsContainer = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(5, 1fr);
+`
+
+const ClassIconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px;
+
+  > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+    > span:first-child {
+      opacity: 0.5;
+      font-size: 0.9rem;
+    }
+    > span:last-child {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    line-height: 24px;
+  }
+` 
+
 const ClassIcon = styled.div<ClassIconProps>`
   border-radius: 12px;
   display: flex;
@@ -66,7 +109,6 @@ const ClassIcon = styled.div<ClassIconProps>`
   height: 60px;
   background: ${props => props.outerColor};
   flex-direction: column;
-  margin: 10px 0px;
   svg {
     color: ${props => props.iconColor};
   }
@@ -74,7 +116,12 @@ const ClassIcon = styled.div<ClassIconProps>`
 ` 
 
 const Class = styled(BaseContainer)`
-
+  h3 {
+    margin-top: 45px;
+    opacity: 0.7;
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
 `
 
 const Course = styled(BaseContainer)`
@@ -96,17 +143,12 @@ const MyCourses = styled(BaseContainer)`
 
     button {
       background: ${props => props.theme.colors.primary};
-      margin: 50px 0 35px;
-      align-self: center;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1rem;
-      padding: 12px 50px;
-      border: 0;
-      border-radius: ${props => props.theme.borderRadius};
+      ${buttonCSS}
     }
   }
 `
+
+
 
 const InputField = styled.div`
   background: #fff;
@@ -187,4 +229,4 @@ const Navigation = styled.div`
   }
 `
 
-export { Main, Navigation, ImageContainer, Class, ClassIcon, MyCourses, Course, InputField, CodeInput }
+export { Main, Navigation, ImageContainer, Class, ClassIcon, MyCourses, Course, ClassIconContainer, InputField, ClassStudentsContainer, CodeInput }
