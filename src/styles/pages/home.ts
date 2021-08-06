@@ -14,9 +14,9 @@ const Main = styled.main`
 
   section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 33% 33% 33%;
     grid-template-rows: 1fr;
-    max-width: calc(370px * 3);
+    max-width: calc(1110px - 80px);
 
     > div {
       &:nth-child(2) {
@@ -30,28 +30,64 @@ const Main = styled.main`
   }
 `
 
-const MyCourses = styled.div`
-  background: #edf0f5;
+const ImageContainer = styled.div`
+  align-self: center;
+  margin-top: 55px !important;
+` 
+
+const BaseContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  > div {
-    align-self: center;
-    margin-top: 55px !important;
-  }
-
-  > form {
-    margin-top: 35px;
+  > div, form {
     padding: 0 25px;
     display: flex;
     flex-direction: column;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    opacity: 0.5;
+    line-height: 20px;
+  }
+`
+
+interface ClassIconProps {
+  outerColor: string;
+  iconColor: string;
+}
+
+const ClassIcon = styled.div<ClassIconProps>`
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 60px;
+  height: 60px;
+  background: ${props => props.outerColor};
+  flex-direction: column;
+  margin: 10px 0px;
+  svg {
+    color: ${props => props.iconColor};
+  }
+
+` 
+
+const Class = styled(BaseContainer)`
+
+`
+
+const Course = styled(BaseContainer)`
+  background: #FFF;
+`
+
+const MyCourses = styled(BaseContainer)`
+  background: #edf0f5;
+
+  > form {
 
     p {
-      font-size: 0.9rem;
-      margin: 10px 0;
-      opacity: 0.5;
       width: 75%;
-      line-height: 20px;
     }
 
     > h3 {
@@ -151,4 +187,4 @@ const Navigation = styled.div`
   }
 `
 
-export { Main, Navigation, MyCourses, InputField, CodeInput }
+export { Main, Navigation, ImageContainer, Class, ClassIcon, MyCourses, Course, InputField, CodeInput }
