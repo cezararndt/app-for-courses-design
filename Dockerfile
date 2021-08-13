@@ -1,40 +1,27 @@
-# Install dependencies only when needed
-FROM node:14-alpine AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# Dockerfile
 
-# Rebuild the source code only when needed
-FROM node:14-alpine AS builder
-WORKDIR /app
-COPY . .
-COPY --from=deps /app/node_modules ./node_modules
-RUN yarn build
+# Use node alpine as it's a small node image
+FROM node:alpine
 
-# Production image, copy all the files and run next
-FROM node:14-alpine AS runner
+# Create the directory on the node image
+# where our Next.js app will live
+RUN mkdir -p /app
+
+# Set /app as the working directory
 WORKDIR /app
 
-ENV NODE_ENV production
+# Copy package.json and package-lock.json
+# to the /app working directory
+COPY package*.json /app
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+# Install dependencies in /app
+RUN yarn install
 
-# You only need to copy next.config.js if you are NOT using the default configuration
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+# Copy the rest of our Next.js folder into /app
+COPY . /app
 
-USER nextjs
-
+# Ensure port 3000 is accessible to our system
 EXPOSE 3000
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-CMD ["yarn", "start"]
+# Run yarn dev, as we would via the command line
+CMD ["yarn", "dev"]
