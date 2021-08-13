@@ -109,33 +109,34 @@ const Home: React.FC = () => {
             <div style={{ marginTop: 35 }}>
               <h2>Web Design</h2>
               <p>
-                If you want to learn to draw then our courses will definitely answer your questions and will teach you draw.
+                If you want to learn to draw then our courses will definitely
+                answer your questions and will teach you draw.
               </p>
 
               <CourseSection
-                color={"#f5ce74"}
-                title={"Beginner"}
+                color={'#f5ce74'}
+                title={'Beginner'}
                 lessons={24}
                 months={2}
               />
 
               <CourseSection
-                color={"#6bc999"}
-                title={"Amateur"}
+                color={'#6bc999'}
+                title={'Amateur'}
                 lessons={18}
                 months={2}
               />
-              
+
               <CourseSection
-                color={"#70b7ec"}
-                title={"Middle"}
+                color={'#70b7ec'}
+                title={'Middle'}
                 lessons={12}
                 months={1}
               />
 
               <CourseSection
-                color={"#ea3e1b"}
-                title={"Professional"}
+                color={'#ea3e1b'}
+                title={'Professional'}
                 lessons={8}
                 months={1}
               />
@@ -146,8 +147,8 @@ const Home: React.FC = () => {
               <h2 style={{ marginBottom: 20 }}>Lesson N°6</h2>
 
               <ClassIconContainer>
-                <ClassIcon outerColor={"#D0E6FA"} iconColor={"#40A0E8"}>
-                  <FaCalendar size={18}/>
+                <ClassIcon outerColor={'#D0E6FA'} iconColor={'#40A0E8'}>
+                  <FaCalendar size={18} />
                 </ClassIcon>
                 <div>
                   <span>April 3, 2021</span>
@@ -156,38 +157,38 @@ const Home: React.FC = () => {
               </ClassIconContainer>
 
               <ClassIconContainer>
-                <ClassIcon outerColor={"#FDF0D0"} iconColor={"#F3BE44"}>
-                  <IoNavigate size={24}/>
+                <ClassIcon outerColor={'#FDF0D0'} iconColor={'#F3BE44'}>
+                  <IoNavigate size={24} />
                 </ClassIcon>
                 <div>
                   <span>Location</span>
-                  <span style={{ color: '#577bb7', opacity: 1, cursor: 'pointer' }}>googlemeet/?call=Lesson</span>
+                  <span
+                    style={{ color: '#577bb7', opacity: 1, cursor: 'pointer' }}
+                  >
+                    googlemeet/?call=Lesson
+                  </span>
                 </div>
               </ClassIconContainer>
 
               <ClassIconContainer>
-                <ClassIcon outerColor={"#CEEEDF"} iconColor={"#3BBB77"}>
-                  <BsCameraVideoFill size={24}/>
+                <ClassIcon outerColor={'#CEEEDF'} iconColor={'#3BBB77'}>
+                  <BsCameraVideoFill size={24} />
                 </ClassIcon>
                 <div>
                   <span>Accept video</span>
                   <span>Everyone</span>
                 </div>
               </ClassIconContainer>
-              
+
               <ClassStudentsContainer style={{ marginTop: 35 }}>
-                { new Array(5).fill("https://thispersondoesnotexist.com/image").map((img, key) => (
-                  <Avatar
-                    image={`${img}`}
-                    key={key}
-                    size={"small"}
-                  />
-                ))}
+                {new Array(5)
+                  .fill('https://thispersondoesnotexist.com/image')
+                  .map((img, key) => (
+                    <Avatar image={`${img}`} key={key} size={'small'} />
+                  ))}
               </ClassStudentsContainer>
 
-              <h3>
-                Materials to study
-              </h3>
+              <h3>Materials to study</h3>
 
               <ImageContainer style={{ marginTop: 30 }}>
                 <Image src={materials} width={300} height={150} />

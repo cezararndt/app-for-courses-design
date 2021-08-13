@@ -18,7 +18,7 @@ export const CourseSectionContainer = styled.div<CourseSectionContainerProps>`
   &:hover {
     cursor: pointer;
     svg {
-      transform: translateX(5px)
+      transform: translateX(5px);
     }
     > div {
       span:first-child {
@@ -46,4 +46,4 @@ export const CourseSectionContainer = styled.div<CourseSectionContainerProps>`
   }
 
   margin: 20px 0px;
-` 
+`
