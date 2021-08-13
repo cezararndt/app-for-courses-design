@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.tsx\"",
-    "dev:docker": "docker-compose --env-file .env.dev up -d --build",
-    "prod:docker": "docker-compose --env-file .env.prod up -d --build"
+    "docker:dev": "docker-compose --env-file .env.dev up -d --build",
+    "docker:prod": "docker-compose --env-file .env.prod up -d --build"
   },
   "dependencies": {
     "next": "11.0.1",

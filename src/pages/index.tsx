@@ -42,7 +42,7 @@ const Home: React.FC = () => {
           <nav>
             <ul>
               <li>
-                <a href="#">My Profile</a>
+                <a href="#">My teste</a>
               </li>
               <li>
                 <a href="#">Courses</a>
